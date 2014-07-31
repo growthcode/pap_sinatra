@@ -61,9 +61,14 @@
         <% if logged_in? %>
           <li><a href="#"><%= "PSP +" %></a></li>
           <li><a href="#"><%= "Edit Profile" %></a></li>
-          <li><a href="#"><%= "Logout" %></a></li>
+          <!-- <li><a href='/logout' rel="nofollow" data-method="delete" data-remote="true">Destroy W/ JS</a></li> -->
+          <li><form action="/logout" method="post">
+            <input name="_method" type="hidden" value="delete" />
+            <!-- <input type="submit" value="Logout"> -->
+            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-star-empty"></span>Logout</button>
+          </form></li>
         <% else %>
-      <li><a href="/sessions/new"><%=  "Login" %></a></li>
+      <!-- <li><a href="/sessions/new"><%=  "Login" %></a></li> -->
         <% end %>
       </ul>
 <!--         <li class="dropdown">
@@ -81,8 +86,12 @@
   </div><!-- /.container-fluid -->
 </header>
 <body>
-
-  <div class="container">
+    <div class="container">
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |error| %>
+        <p><%= "#{error}" %></p>
+      <% end %>
+    <% end %>
 
     <%= yield %>
 

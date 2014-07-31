@@ -1,5 +1,8 @@
-body { padding-top: 60px; }
+body { padding-top: 120px; }
 footer {
     margin-top: 50px;
     color: gray;
+}
+#logout_form {
+  display: inline;
 }

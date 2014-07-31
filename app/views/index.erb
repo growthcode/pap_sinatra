@@ -4,18 +4,31 @@
     <p>to <%= "ASApp. Welcome!" %>
      </p>
   <% if current_user %>
-      You are logged in!
+    You are logged in!
+    <br>
+    Go to your home page:
+  <% else %>
+    <!-- Sign up viewable if no active session -->
+    </form>
       <br>
-      Go to your home page:
-      <button type="button" class="btn btn-success">Home</button>
-      <br>
-      <% User.all.each do |person| %>
-        <br><%= person.name %>
-      <% end %>
 
-    <% else %>
-      <!-- Sign up viewable if no active session -->
+      <form action="/sessions" method="post">
+        <h3>Login</h3>
+        <input type="text" name="email" placeholder="email"><br>
+        <input type="password" name="password" placeholder="password">
+        <button type="submit" class="btn btn-success">Sign-In</button>
+      </form>
+
+      <br><br>
+
+      <p>First time here?</p>
       <p>Welcome! Sign up as a new User!</p>
-      <button type="button" class="btn btn-success">Sign up now!</button>
+    <form action="/users" method="post">
+      <h3>Sign-Up</h3>
+      <input type="text" name="email" placeholder="email"><br>
+      <input type="password" name="password" placeholder="password">
+      <button type="submit" class="btn btn-success">Sign up now!</button>
     <% end %>
 </div>
+
+

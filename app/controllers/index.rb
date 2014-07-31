@@ -1,5 +1,4 @@
 # need to fix CSS not displaying on new session page
-
 get '/' do
   erb :index
 end
@@ -18,17 +17,27 @@ end
 
 post '/sessions' do
   user = User.find_by_email(params[:email])
-  if user.password == params[:password]
+  if params[:password] == user.password
     session[:user_id] = user.id
-    redirect :psp
+    redirect '/psp'
   else
-    redirect :index
+    flash[:error] = user.error.full_messages
+    redirect '/'
   end
 end
 
+# get '/logout' do
+#   user = User.find_by_email(params[:email])
+#   @current_user.session.clear
+#   sessions[:user_id] = nil
+#   sessions.clear
+#   redirect '/'
+# end
+
+
 delete '/logout' do
-  sessions[:user_id] = nil
-  erb :index
+  session[:user_id] = nil
+  redirect '/'
 end
 
 get '/user/new' do
@@ -39,6 +48,7 @@ post '/users' do
   user = User.new(params)
   user.save!
   session[:user_id] = user.id
+  flash[:errors] = user.errors.full_messages
 
   erb :psp
 end
