@@ -3,6 +3,19 @@
     <h1>Welcome! </h1>
     <p>to <%= "ASApp. Welcome!" %>
      </p>
+  <% if current_user %>
+      You are logged in!
+      <br>
+      Go to your home page:
+      <button type="button" class="btn btn-success">Home</button>
+      <br>
+      <% User.all.each do |person| %>
+        <br><%= person.name %>
+      <% end %>
 
-    <button type="button" class="btn btn-success">Sign up now!</button>
+    <% else %>
+      <!-- Sign up viewable if no active session -->
+      <p>Welcome! Sign up as a new User!</p>
+      <button type="button" class="btn btn-success">Sign up now!</button>
+    <% end %>
 </div>
