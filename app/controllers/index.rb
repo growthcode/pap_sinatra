@@ -65,13 +65,34 @@ post '/users/create' do
 end
 
 
-get "/paps/:process_name" do
+get "/:process_name" do
   @pap = Pap.find_by_process_name(params[:process_name])
 
   erb :process
 end
 
+post '/action/create' do
+  @pap = Pap.find_by_process_name(params[:process_name])
+  puts current_user[:email]
 
+  Action.create(
+    acting_person_title: params[:acting_person_title],
+    acting_person: params[:acting_person],
+    action_statement: params[:action_statement],
+    description: params[:description],
+    priority: params[:priority]
+    )
+
+  redirect '/:process_name'
+
+
+  # action = find_by_process_name(params[:process_name])
+  # action = Action.new(params)
+  # user.save!
+  # session[:user_id] = user.id
+  # flash[:errors] = user.errors.full_messages
+
+end
 
 
 
