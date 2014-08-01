@@ -1,3 +1,5 @@
 class User < ActiveRecord::Base
-  # Remember to create a migration!
+  validates :email, uniqueness: true, presence: true
+  validates :email, presence: true
+  has_many :paps
 end

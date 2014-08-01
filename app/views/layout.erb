@@ -36,7 +36,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/psp">Home</a></li>
+        <li class="active"><a href="/paps">Home</a></li>
         <li><a href="/about">About</a></li>
 <!--         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
@@ -59,7 +59,7 @@
       </form> -->
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
-          <li><a href="#"><%= "PSP +" %></a></li>
+          <li><a href="/paps"><%= "PAP +" %></a></li>
           <li><a href="#"><%= "Edit Profile" %></a></li>
           <!-- <li><a href='/logout' rel="nofollow" data-method="delete" data-remote="true">Destroy W/ JS</a></li> -->
           <li><form action="/logout" method="post">
@@ -97,7 +97,7 @@
 
     <footer>
       <small>
-        <%=  "PSP! Website footer info" %>
+        <%=  "PAP! Website footer info" %>
         by <%=  "Hethe Berg, " %><a href="growthcode.github.io">growthcode.github.io</a>
       </small>
     </footer>

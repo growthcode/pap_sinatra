@@ -1,0 +1,16 @@
+<div class="page-header">
+  <h1>Listing all the Paps</h1>
+</div>
+
+<form action="/paps/create" method="post">
+  <br>
+  Process Name: <input type="text" name="process_name" /><br>
+  <input type="submit" value="Create Event">
+</form>
+<br>
+<% @paps.each do |pap| %>
+  <ul>
+    <li><a href="/paps/<%= pap.process_name %>"><%= pap.process_name %><br>
+    <%= pap.user.email %></a></li>
+  </ul>
+<% end %>
