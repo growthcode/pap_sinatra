@@ -10,7 +10,7 @@
 <br>
 <% @paps.each do |pap| %>
   <ul>
-    <li><a href="/<%= pap.process_name %>"><%= pap.process_name %><br>
+    <li><a href="/<%= pap.process_name.downcase %>"><%= pap.process_name %><br>
     <%= pap.user.email %></a></li>
   </ul>
 <% end %>
