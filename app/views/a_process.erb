@@ -1,25 +1,25 @@
 <div class="page-header">
-  <h1><%="'#{@pap.process_name.capitalize}'"%> Action Process</h1>
+  <h1><%="'#{@paps.process_name.capitalize}'"%> Action Process</h1>
 </div>
-
-
-
-
-<br>
-<br>
+<div class="row">
 <br>
 
-
-<form method="post" action="/action/create" class="col-md-4">
+<form method="post" action="/paps/<%= @paps.id %>/action/create" class="col-md-4">
   <div class="form-group">
-    <input type="text" name="action_statement" placeholder="Action Statement" class="form-control">
+    <input type="text" name="action_statement" placeholder="Single Action Statement (1 step and it is done!)" class="form-control">
   </div>
   <div class="form-group form-inline" id="formpap" >
     <input type="text" name="acting_person_title" class="form-control" placeholder="Do'ers Title">
     <input type="text" name="acting_person" class="form-control" placeholder="Person's Name">
   </div>
   <div class="form-group">
-    <input type="text" name="priority" class="form-control" placeholder="Priority (1 through 5)">
+    <select name="priority" class="form-control">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
   </div>
   <div class="form-group">
     <input type="text" name="email" class="form-control" placeholder="email">
@@ -29,15 +29,13 @@
   </div>
   <div class="checkbox">
     <label>
-      <input type="checkbox" name="status"> Complete
+      <input type="checkbox" name="status" value="completed"> Complete?
     </label>
   </div>
-  <button type="submit" class="btn btn-default">Sign in</button>
+  <button type="submit" class="btn btn-default">Create PAP</button>
 </form>
 
-
-<br>
-<br>
+</div>
 <br>
 
 <!-- <form method="post" action="/action/create">
@@ -51,11 +49,23 @@
   <br><br>
   <input type="submit" value="submit">
 </form> -->
+<div class="row">
 
+<ol>
+  <% @paps.actions.each do |pap| %>
+    <li><%= pap.action_statement %></li>
+    - <%= pap.priority %> Priority Level
+    <br>- To be executed by: <%= pap.acting_person %>, <%= pap.acting_person_title %>
+    <br>- Optional details: <%= pap.description %>
+    <% if pap.status == "completed" %>
+      <br>- <%= "Task has been completed and is ready for use." %>
+    <% else %>
+      <br><br>
+    <% end %>
+  <% end %>
+</ol>
 
-
-
-
+</div>
 
 
 

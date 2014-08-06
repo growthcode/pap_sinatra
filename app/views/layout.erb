@@ -87,13 +87,16 @@
 </header>
 <body>
   <div class="container">
-    <% if flash[:errors] %>
-      <% flash[:errors].each do |error| %>
-        <p><%= "#{error}" %></p>
+    <div class="row">
+      <% if flash[:errors] %>
+        <% flash[:errors].each do |error| %>
+          <p><%= "#{error}" %></p>
+        <% end %>
       <% end %>
-    <% end %>
 
-    <%= yield %>
+      <%= yield %>
+
+    </div>
   </div>
 
   <div class="container">

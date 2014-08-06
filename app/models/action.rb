@@ -1,7 +1,7 @@
 class Action < ActiveRecord::Base
-  validates :action_statement, uniqueness: true, presence: true
-  validates :description, uniqueness: true, presence: true
-  validates :priority, uniqueness: true, presence: true
+  validates :action_statement, presence: true
+  validates :description, presence: true
+  validates :priority, presence: true
   belongs_to :paps
 
 end

@@ -49,35 +49,46 @@ get '/paps' do
 end
 
 post '/paps/create' do
-  puts current_user[:email]
-  Pap.create(
-             process_name: params[:process_name],
-             user_id: current_user.id
-             )
+  # puts current_user[:email]
+  hethe = Pap.create(
+            process_name: params[:process_name],
+            user_id: current_user.id
+            )
+  p params
+  p hethe
   redirect '/paps'
 end
 
 ##############################################################
 
-get "/paps/:id/:process_name" do
-  @pap = Pap.find(params[:id])
+# a_process page where we make a many paps on a single process
+
+get "/paps/:id" do
+  @paps = Pap.find(params[:id])
+
+
 
   erb :a_process
 end
 
-post '/action/create' do
-  @pap = Pap.find_by_process_name(params[:process_name])
-  puts current_user[:email]
+post '/paps/:id/action/create' do
+  p params
 
-  Action.create(
+  pap = Action.new(
     acting_person_title: params[:acting_person_title],
     acting_person: params[:acting_person],
     action_statement: params[:action_statement],
     description: params[:description],
-    priority: params[:priority]
+    priority: params[:priority],
+    status: params[:status],
+    pap_id: params[:id]
     )
+  p pap.save
+  # p pap
+  # p params
+  # @pap = Pap.find_by_process_name(params[:process_name])
 
-  redirect '/:process_name'
+  redirect "/paps/#{params[:id]}"
 
 
   # action = find_by_process_name(params[:process_name])

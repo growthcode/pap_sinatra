@@ -10,6 +10,6 @@
 <br>
   <ul>
     <% @paps.each do |pap| %>
-        <li><a href="/paps/<%= pap.id %>/<%= pap.process_name %>"><%= pap.process_name %> | Created: <%= pap.user.created_at %> | Last Updated: <%= pap.user.updated_at %></a></li>
+        <li><a href="/paps/<%= pap.id %>"><%= pap.process_name %> | Created: <%= pap.user.created_at %> | Last Updated: <%= pap.user.updated_at %></a></li>
     <% end %>
   </ul>
