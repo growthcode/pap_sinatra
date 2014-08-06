@@ -3,6 +3,13 @@ footer {
     margin-top: 50px;
     color: gray;
 }
-#logout_form {
+/*#logout_form {
   display: inline;
+}*/
+.navbar .btn {
+  margin-top: 8px;
+}
+
+#formpap {
+  width: 100%;
 }

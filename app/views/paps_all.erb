@@ -1,0 +1,15 @@
+<div class="page-header">
+  <h1>Listing all the Paps</h1>
+</div>
+
+<form action="/paps/create" method="post">
+  <br>
+  Process Name: <input type="text" name="process_name" />
+  <input type="submit" value="Create P.A.Process">
+</form>
+<br>
+  <ul>
+    <% @paps.each do |pap| %>
+        <li><a href="/paps/<%= pap.id %>/<%= pap.process_name %>"><%= pap.process_name %> | Created: <%= pap.user.created_at %> | Last Updated: <%= pap.user.updated_at %></a></li>
+    <% end %>
+  </ul>

@@ -1,0 +1,64 @@
+<div class="page-header">
+  <h1><%="'#{@pap.process_name.capitalize}'"%> Action Process</h1>
+</div>
+
+
+
+
+<br>
+<br>
+<br>
+
+
+<form method="post" action="/action/create" class="col-md-4">
+  <div class="form-group">
+    <input type="text" name="action_statement" placeholder="Action Statement" class="form-control">
+  </div>
+  <div class="form-group form-inline" id="formpap" >
+    <input type="text" name="acting_person_title" class="form-control" placeholder="Do'ers Title">
+    <input type="text" name="acting_person" class="form-control" placeholder="Person's Name">
+  </div>
+  <div class="form-group">
+    <input type="text" name="priority" class="form-control" placeholder="Priority (1 through 5)">
+  </div>
+  <div class="form-group">
+    <input type="text" name="email" class="form-control" placeholder="email">
+  </div>
+  <div class="form-group">
+    <textarea name="description" placeholder="Notes or details go here... but if it is an 'actionable' item, then it belongs on it's own action step."></textarea>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" name="status"> Complete
+    </label>
+  </div>
+  <button type="submit" class="btn btn-default">Sign in</button>
+</form>
+
+
+<br>
+<br>
+<br>
+
+<!-- <form method="post" action="/action/create">
+  <input type="text" name="action_statement" placeholder="Action Statement">
+  <input type="text" name="acting_person_title" placeholder="Do'ers Title">
+  <input type="text" name="acting_person" placeholder="Person's Name">
+  <input type="integer" name="priority" placeholder="1 through 5">
+  <input type="text" name="email" placeholder="email">
+
+  <textarea name="description" placeholder="Notes or details go here... but if it is an 'actionable' item, then it belongs on it's own action step."></textarea>
+  <br><br>
+  <input type="submit" value="submit">
+</form> -->
+
+
+
+
+
+
+
+
+
+
+
