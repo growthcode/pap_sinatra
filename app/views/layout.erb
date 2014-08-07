@@ -12,8 +12,11 @@
   -->
   <link href="/css/bootstrap.min.css" rel="stylesheet">
   <link href="/css/application.css" rel="stylesheet">
+  <link href="/css/jquery-ui.theme.css" rel="stylesheet">
+  <link href="/css/jquery-ui.structure.css" rel="stylesheet">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/js/jquery-ui.js"></script>
   <script src="/js/bootstrap.min.js"></script>
   <script src="/js/application.js"></script>
 
@@ -107,6 +110,23 @@
       </small>
     </footer>
   </div>
+
+<script>
+  $(function() {
+      $( "#sortable" ).sortable({
+        update: function( event, ui ) {
+          var counter = 1;
+          console.log($(this));
+          console.log($(this).find(".hook--order").length)
+          $(this).find(".hook--order").each(function(){
+            $(this).val(counter);
+            counter++;
+          })
+        }
+      });
+    });
+</script>
+
 
 </body>
 </html>

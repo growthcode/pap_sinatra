@@ -48,7 +48,7 @@ get '/paps' do
   erb :paps_all
 end
 
-post '/paps/create' do
+post '/paps' do
   # puts current_user[:email]
   hethe = Pap.create(
             process_name: params[:process_name],
@@ -71,7 +71,7 @@ get "/paps/:id" do
   erb :a_process
 end
 
-post '/paps/:id/action/create' do
+post '/paps/:id' do
   p params
 
   pap = Action.new(
@@ -99,7 +99,16 @@ post '/paps/:id/action/create' do
 
 end
 
-
+put '/paps/:id' do
+  # pap = Pap.find(params[:id])
+  p params
+  # pap.actions.each do |action_step|
+  #   action_step.id == params["hook--order"]
+  #   p action_step.step
+  # end
+  # do each comparison on the name "step_id" and compare it with the action_id and update the step with the data.
+  redirect "/paps/#{params[:id]}"
+end
 
 
 
