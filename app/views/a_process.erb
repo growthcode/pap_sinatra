@@ -38,6 +38,8 @@
 </div>
 <br>
 </div>
+<br>
+<br>
 <!-- <form method="post" action="/action/create">
   <input type="text" name="action_statement" placeholder="Action Statement">
   <input type="text" name="acting_person_title" placeholder="Do'ers Title">
@@ -66,9 +68,14 @@
     <% if action_step.status == "completed" %>
       <br>- <%= "Task has been completed and is ready for use." %>
     <% else %>
-      <br><br>
-    <% end %></li>
-  <% end %>
+    <% end %>
+    <br><a href="#">Edit</a> | <a href="#">Delete</a>
+  <br>
+  <br>
+  <br>
+  <% end %></li>
+  <br>
+
 </ol>
 
   <button type="submit" class="btn btn-default">Update</button>
