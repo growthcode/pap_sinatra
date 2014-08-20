@@ -103,7 +103,7 @@ put '/paps' do
   p params
 
   content_type :json
-  {step_id: params[:step_id], order: params[:order], }.to_json
+  {action_id: params[:action]}.to_json
 end
 
 
