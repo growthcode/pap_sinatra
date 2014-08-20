@@ -81,8 +81,9 @@ post '/paps/:id' do
     description: params[:description],
     priority: params[:priority],
     status: params[:status],
-    pap_id: params[:id]
+    pap_id: params[:id],
     )
+    pap.step = pap.sibling_count + 1
   p pap.save
   # p pap
   # p params
@@ -100,23 +101,28 @@ post '/paps/:id' do
 end
 
 put '/paps' do
-  p params
+  array = params[:action]
+  p Action.update_order(array)
 
   content_type :json
   {action_id: params[:action]}.to_json
 end
 
+# ---------------------------------
+# I below needed now?
 
-put '/paps/:id' do
+# put '/paps/:id' do
   # pap = Pap.find(params[:id])
-  p params
+  # p params
   # pap.actions.each do |action_step|
   #   action_step.id == params["hook--order"]
   #   p action_step.step
   # end
   # do each comparison on the name "step_id" and compare it with the action_id and update the step with the data.
-  redirect "/paps/#{params[:id]}"
-end
+  # redirect "/paps/#{params[:id]}"
+# end
 
+# is above needed now?
+# ----------------------------
 
 
