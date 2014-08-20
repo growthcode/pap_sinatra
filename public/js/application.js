@@ -1,7 +1,29 @@
-$(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+$(document).ready(function(){
+    $('.sortable').sortable({
+    update: function( event, ui ) {
+      console.log("inside sortable function")
+      console.log($('.sortable li'))
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+
+      $.ajax({
+        type: "PUT",
+        url: '/paps',
+        data: $('.sortable').sortable('serialize')
+      })
+      .success(function(data){
+        console.log("in the success fucntion")
+        console.log(data.step_id)
+        console.log(data.order)
+      }
+
+        ).done()
+    }
+  });
 });
+
+
+
+
+
+
+

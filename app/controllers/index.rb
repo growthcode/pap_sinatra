@@ -99,6 +99,14 @@ post '/paps/:id' do
 
 end
 
+put '/paps' do
+  p params
+
+  content_type :json
+  {step_id: params[:step_id], order: params[:order], }.to_json
+end
+
+
 put '/paps/:id' do
   # pap = Pap.find(params[:id])
   p params
