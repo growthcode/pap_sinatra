@@ -13,6 +13,7 @@ gem 'activerecord', '~>4.1'
 gem 'actionview', '~>4.1'
 gem 'rack-flash3'
 gem 'rake'
+gem 'httparty'
 
 gem 'shotgun'
 

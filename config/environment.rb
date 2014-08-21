@@ -16,6 +16,7 @@ require 'active_record'
 require 'action_view'
 require 'logger'
 require 'rack-flash'
+require 'httparty'
 
 require 'sinatra'
 require "sinatra/reloader" if development?

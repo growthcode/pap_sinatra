@@ -1,4 +1,3 @@
-
 <div class="center hero-unit">
     <h1>Welcome! </h1>
     <p>to <%= "ASApp. Welcome!" %>
@@ -8,8 +7,13 @@
     <br>
     Go to your home page:
   <% else %>
+
+
+
     <!-- Sign up viewable if no active session -->
-    </form>
+      <br>
+
+      <br>
       <br>
 
       <form action="/sessions" method="post">
@@ -19,15 +23,25 @@
         <button type="submit" class="btn btn-success">Sign-In</button>
       </form>
 
-      <br><br>
+      <br><hr><br>
 
       <p>First time here?</p>
       <p>Welcome! Sign up as a new User!</p>
-    <form action="/users/create" method="post">
-      <h3>Sign-Up</h3>
-      <input type="text" name="email" placeholder="email"><br>
-      <input type="password" name="password" placeholder="password">
-      <button type="submit" class="btn btn-success">Sign up now!</button>
+      <br>
+      <br>
+      <br>
+
+      <form action="/users/create" method="post">
+      <h3>Create an account here:</h3>
+        <input type="text" name="email" placeholder="email"><br>
+        <input type="password" name="password" placeholder="password">
+        <button type="submit" class="btn btn-success">Sign up now!</button>
+      </form>
+      <h3>Or simply use:</h3>
+      <a class="btn btn-facebook" id="facebook" href="/users/oauth/facebook"><i class="fa fa-facebook"></i> | Connect with Facebook</a>
+
+      <a class="btn btn-linkedin" id="linkedin" href="/users/oauth/linkedin"><i class="fa fa-linkedin"></i> | Connect with LinkedIn</a>
+
     <% end %>
 </div>
 

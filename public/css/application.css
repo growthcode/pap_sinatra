@@ -1,15 +1,56 @@
-body { padding-top: 120px; }
+body { padding-top: 80px; }
 footer {
     margin-top: 50px;
     color: gray;
 }
-/*#logout_form {
-  display: inline;
-}*/
+
 .navbar .btn {
   margin-top: 8px;
 }
 
-#formpap {
-  width: 100%;
+
+header .navbar {
+  padding-right: 20px;
+}
+
+.checkbox {
+  margin: 10px;
+  float: right;
+  display: inline-block;
+}
+
+.left_textbox {
+  width: 50%;
+  float: left;
+}
+
+.right_textbox {
+  width: 50%;
+  float: left;
+}
+
+
+.left_action_form {
+  max-width: 350px;
+  float: left;
+}
+
+.right_actions_list {
+  /*min-width: 70%;*/
+  padding-left: 10px;
+  margin: auto;
+  float: left;
+}
+
+.form_action_submit{
+  margin: 15px;
+}
+
+.manage_actions {
+  width:150px;
+  display: inline-block;
+}
+
+.debug {
+  border: 1px solid red;
 }

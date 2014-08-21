@@ -1,7 +1,10 @@
+
+
 # Index Page
 # Index has sessions for creation
 
 get '/' do
+
   erb :index
 #*******# need to fix CSS not displaying on new session page
 end
@@ -30,6 +33,16 @@ post '/users/create' do
 
   redirect '/paps'
 end
+
+get '/users/oauth/:site' do
+  if "linkedin" == params[:site]
+    @oauth_link = API::LinkedIn.step1_auth_code_gen_redirect
+    redirect @oauth_link
+  else
+  end
+
+end
+
 
 ##############################################################
 

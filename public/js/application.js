@@ -16,7 +16,7 @@ $(document).ready(function(){
 
         ).error(function(){
           console.log("in the failure callback function")
-        }).done()
+        }).done().disableSelection()
     }
   });
 });

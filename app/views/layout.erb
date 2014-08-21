@@ -11,13 +11,16 @@
     application.css is where you put your styles
   -->
   <link href="/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/css/application.css" rel="stylesheet">
   <link href="/css/jquery-ui.theme.css" rel="stylesheet">
   <link href="/css/jquery-ui.structure.css" rel="stylesheet">
+  <link href="/css/social-buttons-3.css" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/jquery-ui.js"></script>
   <script src="/js/bootstrap.min.js"></script>
+
+  <link href="/css/application.css" rel="stylesheet">
 
   <title></title>
 </head>
@@ -29,11 +32,6 @@
 <body>
   <div class="container">
     <div class="row">
-      <% if flash[:errors] %>
-        <% flash[:errors].each do |error| %>
-          <p><%= "#{error}" %></p>
-        <% end %>
-      <% end %>
 
       <%= yield %>
 

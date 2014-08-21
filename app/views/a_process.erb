@@ -1,25 +1,27 @@
 <div class="page-header">
   <h1><%="'#{@paps.process_name.capitalize}'"%> Action Process</h1>
 </div>
-<div class="row">
+
+Manage Actions Items: <%= erb :_manage_action_list %>
+<br>
 <br>
 
-<%= erb :_create_action_PAP %>
-
-<br>
+<div class="left_action_form debug">
+  <%= erb :_form_action_PAP %>
 </div>
-<br>
-<br>
 
 
-<div class="row">
 
+
+
+
+
+
+
+
+<div class="right_actions_list debug">
   <%= erb :_list_action %>
-
 </div>
-
-
-
 
 
 

@@ -1,0 +1,31 @@
+<form method="post" action="/paps/<%= @paps.id %>" >
+  <div class="form-group">
+    <input type="text" name="action_statement" placeholder="Single Action Statement (1 step and it is done!)" class="form-control">
+  <!-- </div> -->
+  <div class="form-group">
+    <select name="priority" class="form-control">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  <!-- </div> -->
+  <!-- <div class="form-group"> -->
+    <input type="text" name="email" class="form-control" placeholder="email">
+  <!-- </div> -->
+  <!-- <div class="form-group"> -->
+    <textarea name="description" class="form-control " rows="3" placeholder="Notes or details go here... but if it is an 'actionable' item, then it belongs on it's own action step."></textarea>
+  <div class="form-group form-inline" >
+    <input type="text" name="acting_person_title" class="form-control left_textbox" placeholder="Do'ers Title">
+    <input type="text" name="acting_person" class="form-control right_textbox" placeholder="Person's Name">
+  </div>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" name="status" value="completed" class="checkbox_ready"> Action Ready?
+    </label>
+  </div>
+  <button type="submit" class="btn btn-success form_action_submit">Create PAP</button>
+</div>
+</form>
