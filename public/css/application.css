@@ -19,16 +19,16 @@ header .navbar {
   display: inline-block;
 }
 
-.left_textbox_person_title {
-  width: 45%;
-  float: left;
-  margin: 0px;
+.name_title {
+  display:flex;
 }
 
-.right_textbox_acting_person {
-  width: 45%;
-  float: left;
-  margin: 0px;
+.priority_selector {
+  flex-shrink: 5;
+}
+
+.select_checkbox_dragicon {
+  display:flex;
 }
 
 .left_action_form {
