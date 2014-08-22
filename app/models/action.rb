@@ -18,8 +18,9 @@ class Action < ActiveRecord::Base
   end
 
   def self.add_1_to_all_steps
+    "--------start Action.all.each--------------"
     Action.all.each do |action|
-      action.step += 1
+      puts action.step += 1
       action.save
     end
   end

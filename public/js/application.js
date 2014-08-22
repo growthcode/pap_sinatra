@@ -10,17 +10,19 @@ $(document).ready(function(){
 
 // invoking sortable first so that .change() and sortable(enable/disable) doesn't cause a no method error
 $('.sortable').sortable({
+  placeholder: "ui-state-highlight",
+  revert: true,
   update: dragAndSortActionItems
 }).disableSelection();
 
 function saveButtonsTopAndBottom (event) {
   event.preventDefault();
   console.log("in the saveButtonsTopAndBottom function")
-
-  var data = $(".form_new_action").serializeArray();;
+// debugger
+  var data = $(".form_new_action").serializeArray();
   if($(this).hasClass("bottom_saver")){
     data.push({name: "submit_type", value: "bottom_saver"});
-  } else if ($("top_saver").hasClass("top_saver")) {
+  } else if($(this).hasClass("top_saver")) {
     data.push({name: "submit_type", value: "top_saver"});
   }
 
@@ -31,8 +33,8 @@ function saveButtonsTopAndBottom (event) {
     // data: $(".form_new_action").serialize()
   }).success(function(data){
     console.log("in the 'success' saveButtonsTopAndBottom  fucntion");
-    console.log("The action statement is: '" + data.action_statement + "'  on action.id: '" + data.id);
-
+    console.log("The action statement is: '" + data.action_statement + "'  on action.id: '" + data.id + "'  on action.step: '" + data.step);
+// debugger
     $(".form_new_action").trigger("reset");
 
     // DO THE APPEND STUFF, SEE:

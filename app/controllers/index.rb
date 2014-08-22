@@ -77,9 +77,8 @@ end
 # a_process page where we make a many paps on a single process
 
 get "/paps/:id" do
-  @paps = Pap.find(params[:id])
-
-
+  @actions_array = Pap.find(params[:id]).actions.sort_by { |act| act.step }
+  @pap = Pap.find(params[:id])
 
   erb :a_process
 end
@@ -106,8 +105,11 @@ post '/paps/:id' do
     if params["submit_type"] == "bottom_saver"
       action.step = action.sibling_count + 1
     elsif params["submit_type"] == "top_saver"
-      p action.step = 0
-      p Action.add_1_to_all_steps
+      puts "-----------------------------"
+      puts Action.add_1_to_all_steps
+      puts "-----------------------------"
+      puts action.step = 1
+      puts "-----------------------------"
     end
 
 

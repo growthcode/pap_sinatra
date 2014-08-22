@@ -1,12 +1,12 @@
   <ol class="sortable">
-    <% @paps.actions.each_with_index do |action_step, index| %>
-      <li id="action_<%=action_step.id%>" class="action_<%= action_step.status %> action_<%= action_step.priority %>">"{<%= action_step.id %>} action_step.id" {<%= action_step.id %>}
+    <% @actions_array.each do |action| %>
+      <li id="action_<%=action.id%>" class="action_<%= action.status %> action_<%= action.priority %>">"action.STEP={<%= action.step %>}" AND "action.ID={<%= action.id %>}""
 
-      <br>- action_step.action_statement: {<%= action_step.action_statement %>},
-      <br>- action_step.priority {<%= action_step.priority %>}
-      <br>- action_step.acting_person {<%= action_step.acting_person %>}, action_step.acting_person_title {<%= action_step.acting_person_title %>}
-      <br>- action_step.description {<%= action_step.description %>}
-      <br>- action_step.status {<%= action_step.status %>}
+      <br>- action.action_statement: {<%= action.action_statement %>},
+      <br>- action.priority {<%= action.priority %>}
+      <br>- action.acting_person {<%= action.acting_person %>}, action.acting_person_title {<%= action.acting_person_title %>}
+      <br>- action.description {<%= action.description %>}
+      <br>- action.status {<%= action.status %>}
 
 
 
