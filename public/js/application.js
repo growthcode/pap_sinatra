@@ -7,7 +7,6 @@ $(document).ready(function(){
   $('.top_saver').on( "click", saveButtonsTopAndBottom  )
 
 });
-
 // invoking sortable first so that .change() and sortable(enable/disable) doesn't cause a no method error
 $('.sortable').sortable({
   placeholder: "ui-state-highlight",
@@ -15,26 +14,38 @@ $('.sortable').sortable({
   update: dragAndSortActionItems
 }).disableSelection();
 
+$(".drag_saver").draggable({
+  connectToSortable: '.sortable',
+  cursor: 'move',
+  cursorAt: { top: 0, left: 0 },
+  helper: 'clone',
+  revert: 'invalid',
+  // stop: dragAndSortActionItems
+});
+
+
 function saveButtonsTopAndBottom (event) {
   event.preventDefault();
   console.log("in the saveButtonsTopAndBottom function")
-// debugger
+
   var data = $(".form_new_action").serializeArray();
   if($(this).hasClass("bottom_saver")){
     data.push({name: "submit_type", value: "bottom_saver"});
   } else if($(this).hasClass("top_saver")) {
     data.push({name: "submit_type", value: "top_saver"});
+  } else {
+    data.push({name: "submit_type", value: "bottom_saver"});
   }
 
   $.ajax({
     type: "POST",
     url: $(this).attr("href"),
     data: $.param(data),
-    // data: $(".form_new_action").serialize()
+
   }).success(function(data){
     console.log("in the 'success' saveButtonsTopAndBottom  fucntion");
     console.log("The action statement is: '" + data.action_statement + "'  on action.id: '" + data.id + "'  on action.step: '" + data.step);
-// debugger
+
     $(".form_new_action").trigger("reset");
 
     // DO THE APPEND STUFF, SEE:

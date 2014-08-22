@@ -74,8 +74,10 @@ header .navbar {
   border: 1px solid red;
 }
 
-/* for sortable placeholder size */
-/*.placeholder {
-  width: 100%;
-  height: 100%;
-}*/
+form.form_new_action li {
+    list-style:none;
+    display: inline-block;
+    padding-left:0;
+}​
+
+
