@@ -19,16 +19,17 @@ header .navbar {
   display: inline-block;
 }
 
-.left_textbox {
-  width: 50%;
+.left_textbox_person_title {
+  width: 45%;
   float: left;
+  margin: 0px;
 }
 
-.right_textbox {
-  width: 50%;
+.right_textbox_acting_person {
+  width: 45%;
   float: left;
+  margin: 0px;
 }
-
 
 .left_action_form {
   max-width: 350px;

@@ -96,7 +96,13 @@ post '/paps/:id' do
     status: params[:status],
     pap_id: params[:id],
     )
+
     pap.step = pap.sibling_count + 1
+
+    if pap.status != "complete"
+      pap.status = "incomplete"
+    end
+
   p pap.save
   # p pap
   # p params

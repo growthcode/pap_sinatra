@@ -11,8 +11,8 @@
     - action_step.priority {<%= action_step.priority %>}
     - action_step.acting_person {<%= action_step.acting_person %>}, action_step.acting_person_title {<%= action_step.acting_person_title %>}
     - action_step.description {<%= action_step.description %>}
-    <% if action_step.status == "completed" %>
-      - <%= "Task has been completed and is ready for use." %>
+    <% if action_step.status == "complete" %>
+      - <%= "Task has been complete and is ready for use." %>
     <% else %>
     <% end %> | <a href="#">Edit</a> | <a href="#">Delete</a>
   <br>
