@@ -17,4 +17,11 @@ class Action < ActiveRecord::Base
     Pap.find(self.pap_id).actions.count
   end
 
+  def self.add_1_to_all_steps
+    Action.all.each do |action|
+      action.step += 1
+      action.save
+    end
+  end
+
 end

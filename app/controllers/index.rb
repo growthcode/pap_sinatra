@@ -87,6 +87,7 @@ end
 post '/paps/:id' do
   p params
 
+
   action = Action.new(
     acting_person_title: params[:acting_person_title],
     acting_person: params[:acting_person],
@@ -97,13 +98,20 @@ post '/paps/:id' do
     pap_id: params[:id],
     )
 
-    action.step = action.sibling_count + 1
 
     if action.status != "complete"
       action.status = "incomplete"
     end
 
-  p action.save
+    if params["submit_type"] == "bottom_saver"
+      action.step = action.sibling_count + 1
+    elsif params["submit_type"] == "top_saver"
+      p action.step = 0
+      p Action.add_1_to_all_steps
+    end
+
+
+  action.save
 
   content_type :json
   action.to_json

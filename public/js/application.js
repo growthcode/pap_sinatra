@@ -3,7 +3,8 @@ $(document).ready(function(){
 
   // 2nd .change allows initial rendering of page to invokes this method and NOT wait for the first change
   $('.manage_actions').change( changeViewOfActions ).change();
-  $('.bottom_saver').on( "click", saveOnBottomNewActionItem )
+  $('.bottom_saver').on( "click", saveButtonsTopAndBottom  )
+  $('.top_saver').on( "click", saveButtonsTopAndBottom  )
 
 });
 
@@ -12,21 +13,25 @@ $('.sortable').sortable({
   update: dragAndSortActionItems
 }).disableSelection();
 
-function saveOnBottomNewActionItem(event) {
+function saveButtonsTopAndBottom (event) {
   event.preventDefault();
-  console.log("in the saveOnBottomNewActionItem function")
+  console.log("in the saveButtonsTopAndBottom function")
 
-  var data = $(".form_new_action").serializeArray();
-  data.push({name: "SubmitType", value: "bottom"});
+  var data = $(".form_new_action").serializeArray();;
+  if($(this).hasClass("bottom_saver")){
+    data.push({name: "submit_type", value: "bottom_saver"});
+  } else if ($("top_saver").hasClass("top_saver")) {
+    data.push({name: "submit_type", value: "top_saver"});
+  }
+
   $.ajax({
     type: "POST",
     url: $(this).attr("href"),
     data: $.param(data),
     // data: $(".form_new_action").serialize()
   }).success(function(data){
-    console.log("in the 'success' saveOnBottomNewActionItem fucntion");
-    console.log(data.id);
-    console.log("The action statement is: '" + data.action_statement + "'  on action.id: '");
+    console.log("in the 'success' saveButtonsTopAndBottom  fucntion");
+    console.log("The action statement is: '" + data.action_statement + "'  on action.id: '" + data.id);
 
     $(".form_new_action").trigger("reset");
 
@@ -35,9 +40,9 @@ function saveOnBottomNewActionItem(event) {
     // https://github.com/mule-deer-2014/ph2-p8-javascript-dynamic-elements-and-events-challenge/blob/HeTheBranDonCarlBerg/source/dynamic-todos/public/js/application.js
 
   }).error(function(){
-    console.log("in the 'failure' saveOnBottomNewActionItem callback function")
+    console.log("in the 'failure' saveButtonsTopAndBottom  callback function")
   }).done(function(){
-    console.log("in the 'done' saveOnBottomNewActionItem function")
+    console.log("in the 'done' saveButtonsTopAndBottom  function")
   })
 }
 
