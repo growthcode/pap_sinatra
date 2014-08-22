@@ -8,7 +8,6 @@ footer {
   margin-top: 8px;
 }
 
-
 header .navbar {
   padding-right: 20px;
 }
@@ -24,11 +23,23 @@ header .navbar {
 }
 
 .priority_selector {
-  flex-shrink: 5;
+  flex-shrink: 130;
 }
 
 .select_checkbox_dragicon {
   display:flex;
+}
+.priority_label {
+  white-space: nowrap;
+  flex-grow: 1;
+  align-self: center;
+}
+
+.save_action_top_bottom_drag {
+  display:flex;
+  justify-content: space-between;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .left_action_form {
@@ -36,11 +47,18 @@ header .navbar {
   float: left;
 }
 
+.select_shit {
+  justify-content: space-between;
+
+}
+
 .right_actions_list {
-  /*min-width: 70%;*/
-  padding-left: 10px;
-  margin: auto;
-  float: left;
+  display:flex;
+  justify-content: center;
+  min-width: 50%;
+  /*padding-left: 10px;*/
+  /*margin: auto;*/
+  /*float: left;*/
 }
 
 .form_action_submit{

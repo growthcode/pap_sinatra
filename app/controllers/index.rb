@@ -87,7 +87,7 @@ end
 post '/paps/:id' do
   p params
 
-  pap = Action.new(
+  action = Action.new(
     acting_person_title: params[:acting_person_title],
     acting_person: params[:acting_person],
     action_statement: params[:action_statement],
@@ -97,18 +97,23 @@ post '/paps/:id' do
     pap_id: params[:id],
     )
 
-    pap.step = pap.sibling_count + 1
+    action.step = action.sibling_count + 1
 
-    if pap.status != "complete"
-      pap.status = "incomplete"
+    if action.status != "complete"
+      action.status = "incomplete"
     end
 
-  p pap.save
-  # p pap
-  # p params
-  # @pap = Pap.find_by_process_name(params[:process_name])
+  p action.save
 
-  redirect "/paps/#{params[:id]}"
+  content_type :json
+  action.to_json
+
+
+  # p action
+  # p params
+  # @action = Pap.find_by_process_name(params[:process_name])
+
+  # redirect "/paps/#{params[:id]}"
 
 
   # action = find_by_process_name(params[:process_name])
